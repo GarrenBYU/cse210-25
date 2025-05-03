@@ -67,39 +67,5 @@ public class Journal
         else{
             Console.WriteLine("Access denied.");
         }
-        // string[] lines = System.IO.File.ReadAllLines(filename2);
-
-        // for (int i = 0; i < lines.Length; i++)
-        // {
-        //     //string[] parts = line.Split(",");
-        //     this._entries.Add(lines[i]);
-        // }
-        //this._entries.Add('\n');
     } 
-    // public void RecievePassword(String file){
-    //     string filename = file;
-    //     string passwordInFile;
-    //     try{
-    //         using(StreamReader reader = new StreamReader(filename))
-    //         {
-    //             passwordInFile = reader.ReadLine();
-    //         }
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         Console.WriteLine("We were unable to open this file.");
-    //         Console.WriteLine("e.Message");
-    //         return;
-    //     }
-    //     Console.WriteLine("Enter the password: ");
-    //     string passwordUserEntered = Console.ReadLine();
-
-    //     if(passwordUserEntered == passwordInFile){
-    //         Console.WriteLine("Access granted.");
-    //         LoadFromFile(file);
-    //     }
-    //     else{
-    //         Console.WriteLine("Access denied.");
-    //     }
-    // }
 }

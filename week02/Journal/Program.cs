@@ -46,7 +46,8 @@ class Program
                 case MenuItem.Save:
                     Console.Write("What is the file name? ");
                     fileName = Console.ReadLine();
-                    Console.Write("Do you want a password? ");
+                    //Added password protection. Nothing is hashed yet, but I did it just for prelininary fun. I might come back and try to hash the entire file then unhash it if the user gets the password right, but it will depend on time.
+                    Console.Write("Do you want a password?(Yes or No) ");
                     passChoice = Console.ReadLine();
                     if(passChoice == "Yes" || passChoice == "yes"){
                         Console.Write("What is the password? ");
@@ -78,7 +79,6 @@ class Program
         newEntry._question = newPrompt.GetRandomPrompt();
         Console.Write($"{newEntry._question} \n >");
         newEntry._answer = Console.ReadLine();
-        //string entry = $"Date: {newEntry._date} - Prompt: {newEntry._question} \n{newEntry._answer}";
         newJournal.AddEntry($"Date: {newEntry._date} - Prompt: {newEntry._question} \n{newEntry._answer}");
     }
 }
