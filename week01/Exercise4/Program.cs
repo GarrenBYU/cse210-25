@@ -30,7 +30,7 @@ class Program
             }
         }
         Console.WriteLine($"The sum is: {total}");
-        float average = ((float)total) / numbers.Count;
+        float average = ((float)total) / (numbers.Count - 1);
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {largest}");
     }
