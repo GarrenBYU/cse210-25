@@ -8,5 +8,8 @@ public class Reference
     public int _endVerse;
     public string _verseText;
 
+    public void DisplayText(){
+        Console.Write($"{_book} {_chapter}:{_verse}-{_endVerse}: ");
+    }
 
 }

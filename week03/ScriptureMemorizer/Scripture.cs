@@ -15,4 +15,18 @@ public class Scripture
         return _words;
     }
 
+    public void HideRandomWords(int numToHide, List<Word> words)
+    {
+        int count = 0;
+        while(numToHide > count)
+            {
+            Random randomGenerator = new Random();
+            int index = randomGenerator.Next(1, words.Count);
+            if(words[index]._isHiden == false){
+            words[index]._isHiden = true;
+            count++;
+            }
+            }
+    }
+
 }
