@@ -1,5 +1,7 @@
 using System;
 
+
+//For the above and beyond I added the option to enter the number of words that the user would like to exclude. If an option is not chosen then it will default to 3. 
 class Program
 {
     static void Main(string[] args)
@@ -17,27 +19,22 @@ class Program
         Console.WriteLine();
         reference1.DisplayText();
         
-        
-        foreach (Word word in words)
-        {
-            Console.Write(word + " ");
-        }
+
+        scripture1.DisplayText(words);
         Console.WriteLine();
         while(choice != "quit" && scripture1.IsCompletelyHidden() != true)
             {
 
             Console.WriteLine("How many words do you want to hide? ");
-            int numToHide = int.Parse(Console.ReadLine());
+            string response = Console.ReadLine();
+            int numToHide = string.IsNullOrWhiteSpace(response) ? 3 : int.Parse(response);
 
-            scripture1.HideRandomWords(numToHide, words);
+            scripture1.HideRandomWords(numToHide = 3, words);
 
             Console.Clear();
             reference1.DisplayText();
             
-            foreach (Word word in words)
-            {
-                Console.Write(word + " ");
-            }
+            scripture1.DisplayText(words);
             Console.WriteLine($"\nPress enter to continue or type 'quit' to finish. ");
             choice = Console.ReadLine();
             }

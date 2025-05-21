@@ -48,4 +48,12 @@ public class Scripture
         }
     }
 
+    public void DisplayText(List<Word> words)
+    {
+        foreach (Word word in words)
+            {
+                Console.Write(word + " ");
+            }
+    }
+
 }
