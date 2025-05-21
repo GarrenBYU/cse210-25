@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
         Reference reference1 = new Reference();
         reference1._book = "John";
         reference1._chapter = 3;
@@ -15,13 +14,16 @@ class Program
         scripture1._originalText = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. For God sent not his Son into the world to condemn the world; but that the world through him might be saved.";
         List<Word> words = scripture1.ConvertVerse(scripture1._originalText);
         string choice = "";
+        Console.WriteLine();
         reference1.DisplayText();
+        
         
         foreach (Word word in words)
         {
             Console.Write(word + " ");
         }
-        while(choice != "quit")
+        Console.WriteLine();
+        while(choice != "quit" && scripture1.IsCompletelyHidden() != true)
             {
 
             Console.WriteLine("How many words do you want to hide? ");
@@ -29,6 +31,7 @@ class Program
 
             scripture1.HideRandomWords(numToHide, words);
 
+            Console.Clear();
             reference1.DisplayText();
             
             foreach (Word word in words)
@@ -38,5 +41,6 @@ class Program
             Console.WriteLine($"\nPress enter to continue or type 'quit' to finish. ");
             choice = Console.ReadLine();
             }
+        Console.WriteLine("Great Job!");
     }
 }
