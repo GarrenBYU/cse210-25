@@ -13,6 +13,6 @@ public class WritingAssignment : Assignment
     {
         string studentname = GetStudentName();
 
-        return $"{_title} by {studentname}"
+        return $"{_title} by {studentname}";
     }
 }
