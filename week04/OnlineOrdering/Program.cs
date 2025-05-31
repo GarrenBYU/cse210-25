@@ -14,7 +14,7 @@ class Program
         order1.PackingLabel();
         order1.ShippingLabel();
 
-
+        Console.WriteLine("");
         Address address2 = new Address("1st Tree", "Jungle", "Misiones", "AR");
         Customer customer2 = new Customer("George of the Jungle", address2);
         Product product3 = new Product("Art Stand", 95476, 20, 2);
