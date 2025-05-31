@@ -5,11 +5,11 @@ public class ListingActivity : Activity
     private int _count;
     private List<string> _prompts;
 
-    public ListingActivity(string name = "Listing Activity", string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", List<string> prompts) : base (name, description){
+    public ListingActivity(List<string> prompts, string name = "Listing Activity", string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.") : base (name, description){
         _prompts = prompts;
     }
 
-    public Run()
+    public void Run()
     {
         DisplayStartingMesssage();
         Console.Clear();
@@ -39,10 +39,10 @@ public class ListingActivity : Activity
         return _firstPrompt;
     }
 
-    public List<string> GetListFromUser()
+    public void GetListFromUser()
     {
-        Console.WriteLine("> ");
-        Console.ReadLine()
-        _count++
+        Console.Write("> ");
+        Console.ReadLine();
+        _count++;
     }
 }
