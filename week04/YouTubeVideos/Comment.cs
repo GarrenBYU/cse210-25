@@ -13,6 +13,6 @@ public class Comment
 
     public void Display()
     {
-        Console.WriteLine($"{_text} \n-{_name} ");
+        Console.WriteLine($"{_text} \n-{_name}\n ");
     }
 }
