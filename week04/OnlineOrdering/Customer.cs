@@ -3,9 +3,9 @@ using System;
 public class Customer
 {
     public string _name;
-    Address _address();
+    public Address _address;
 
-    public void Customer(string name, Address address){
+    public Customer(string name, Address address){
         _name = name;
         _address = address;
     }
