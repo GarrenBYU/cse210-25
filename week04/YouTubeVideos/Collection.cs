@@ -6,6 +6,7 @@ class Collection
 
 
     public void Display(){
+        Console.Clear();
         foreach (Video v in _videos){
             v.Display();
         }
