@@ -22,7 +22,7 @@ public class Activity{
 
     public void DisplayEndingMessage(){
         string durationString = _duration.ToString();
-        Console.WriteLine($"Well done!!\n\nYou have completed another {durationString} seconds of the {_name}.");
+        Console.WriteLine($"\nWell done!!\n\nYou have completed another {durationString} seconds of the {_name}.");
     }
 
     public void ShowSpinner(int seconds){
@@ -44,7 +44,7 @@ public class Activity{
         {
             string s = animationStrings[i];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("\b \b");
 
             i++;

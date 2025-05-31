@@ -10,6 +10,7 @@ public class BreathingActivity : Activity
         DisplayStartingMesssage();
         Console.Clear();
         Console.WriteLine("Get ready...");
+        ShowSpinner(5);
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(GetDuration());
 
