@@ -5,19 +5,24 @@ public class Activity{
     private string _description;
     private int _duration;
 
-    public void Activity(string name, string description)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
     }
 
+    public int GetDuration(){
+        return _duration;
+    }
+
     public void DisplayStartingMesssage(){
         Console.WriteLine($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
-        _duration = Console.ReadLine();
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public void DisplayEndingMessage(){
-        Console.WriteLine($"Well done!!\n\nYou have completed another {ToString(_duration)} seconds of the {_name}.");
+        string durationString = _duration.ToString();
+        Console.WriteLine($"Well done!!\n\nYou have completed another {durationString} seconds of the {_name}.");
     }
 
     public void ShowSpinner(int seconds){
@@ -35,14 +40,14 @@ public class Activity{
 
         int i = 0;
 
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < futureTime)
         {
             string s = animationStrings[i];
             Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
 
-            i++
+            i++;
 
             if(i >= animationStrings.Count)
             {
@@ -57,7 +62,7 @@ public class Activity{
         {
             Console.Write(i);
             Thread.Sleep(1000);
-            Console.Write("\B \B");
+            Console.Write("\b \b");
         }
     }
 }
