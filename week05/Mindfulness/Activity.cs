@@ -16,7 +16,7 @@ public class Activity{
     }
 
     public void DisplayStartingMesssage(){
-        Console.WriteLine($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
+        Console.Write($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
     }
 

@@ -9,17 +9,18 @@ public class BreathingActivity : Activity
     {
         DisplayStartingMesssage();
         Console.Clear();
-        Console.WriteLine("Get ready...\n");
+        Console.WriteLine("Get ready...");
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(GetDuration());
 
 
         while (DateTime.Now < futureTime)
         {
-            Console.WriteLine("Breathe in...");
+            Console.Write("\nBreathe in...");
             ShowCountDown(4);
-            Console.WriteLine("Breathe out...");
+            Console.Write("\nBreathe out...");
             ShowCountDown(6);
+            Console.WriteLine();
         }
         DisplayEndingMessage();
     }
