@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Address address1 = new Address("969 E Citadel Ln", "Saratoga Springs", "UT", "USA");
-        Customer customer1 = new Customer("Garren Meisman", address1);
+        Customer customer1 = new Customer("Alex Rider", address1);
         Product prodcut1 = new Product("Picture Frame", 56287, 5, 8);
         Product product2 = new Product("Picture", 951257, 12, 8);
         Order order1 = new Order(customer1);
@@ -13,6 +13,9 @@ class Program
         order1._products.Add(product2);
         order1.PackingLabel();
         order1.ShippingLabel();
+        order1.TotalCost();
+        order1.LivesUSA();
+        Console.WriteLine($"Total Cost: ${order1._totalCost}");
 
         Console.WriteLine("");
         Address address2 = new Address("1st Tree", "Jungle", "Misiones", "AR");
@@ -26,5 +29,8 @@ class Program
         order2._products.Add(product5);
         order2.PackingLabel();
         order2.ShippingLabel();
+        order2.TotalCost();
+        order2.LivesUSA();
+        Console.WriteLine($"Total Cost: ${order2._totalCost}");
     }
 }

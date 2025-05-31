@@ -3,7 +3,7 @@ using System;
 public class Order
 {
     public List<Product> _products = new List<Product>();
-    public int _totalCost = 0;
+    public int _totalCost;
     public Customer _customer;
     public Order(Customer customer){
         _customer = customer;
