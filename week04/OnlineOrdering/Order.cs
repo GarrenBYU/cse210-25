@@ -26,7 +26,7 @@ public class Order
     }
     public void PackingLabel(){
         foreach(Product p in _products){
-            Console.WriteLine($"{p._name}, {p._productId}\n");
+            Console.WriteLine($"{p._name}, {p._productId}");
         }
     }
     public void ShippingLabel(){
