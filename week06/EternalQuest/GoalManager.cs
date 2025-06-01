@@ -40,8 +40,8 @@ public class GoalManager
         string _name;
         string _description;
         string _points;
-        string _target;
-        string _bonus;
+        int _target;
+        int _bonus;
 
         Console.Write($"What is the name of your goal? ");
         _name = Console.ReadLine();
@@ -61,9 +61,9 @@ public class GoalManager
                 break;
             case 3:
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-                _target = Console.ReadLine();
+                _target = int.Parse(Console.ReadLine());
                 Console.Write("What is the bonus for accomplishing it that many times? ");
-                _bonus = Console.ReadLine();
+                _bonus = int.Parse(Console.ReadLine());
                 ChecklistGoal newChecklistGoal = new ChecklistGoal(_name, _description, _points, _target, _bonus);
                 _goals.Add(newChecklistGoal);
                 break;
@@ -76,7 +76,7 @@ public class GoalManager
         int _count = 1;
         foreach (Goal g in _goals)
         {
-            Console.WriteLine($"{_count}. {g._shortName}");
+            Console.WriteLine($"{_count}. {g.GetName()}");
             _count++;
         }
         Console.Write("Which goal did you accomplish? ");
