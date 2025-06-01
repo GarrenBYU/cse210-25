@@ -114,11 +114,12 @@ public class GoalManager
         Console.Write($"What is the filename for the goal file? ");
         string _fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(_fileName)){
-            outputFile.WriteLine(_score);
+            outputFile.WriteLine($"{_score}");
 
             foreach(Goal g in _goals)
             {
-                g.GetStringRepresentation();
+                outputFile.Write($"{g.GetType()}|");
+                outputFile.WriteLine(g.GetStringRepresentation());
             }
         }
     }
@@ -130,15 +131,41 @@ public class GoalManager
         string[] lines = System.IO.File.ReadAllLines (_fileName);
         foreach (string line in lines)
         {
+            if (line == lines[0])
+            {
+                _score = int.Parse(line);
+            }
+            else
+            {
             string[] parts = line.Split("|");
 
-            string name = parts[0];
-            string description = parts[1];
-            string points = parts[2];
-            string isComplete = parts[3];
-            string amountCompleted = parts[4];
-            string target = parts[5];
-            string bonus = parts[6];
+            string classType = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            string points = parts[3];
+            string isComplete = parts[4];
+            string amountCompleted = parts[5];
+            string target = parts[6];
+            string bonus = parts[7];
+            
+            switch (classType){
+                case "SimpleGoal":
+                    SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+                    bool result;
+                    simpleGoal.SetIsComplete(bool.TryParse(isComplete, out result));
+                    _goals.Add(simpleGoal);
+                    break;
+                case "EternalGoal":
+                    EternalGoal eternalGoal = new EternalGoal(name, description, points);
+                    _goals.Add(eternalGoal);
+                    break;
+                case "ChecklistGoal":
+                    ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, int.Parse(target), int.Parse(bonus));
+                    checklistGoal.SetAmountCompleted(int.Parse(amountCompleted));
+                    _goals.Add(checklistGoal);
+                    break;
+            }
+            }
         }
     }
     public int GetEnd()

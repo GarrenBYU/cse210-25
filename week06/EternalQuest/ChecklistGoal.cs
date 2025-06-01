@@ -50,4 +50,9 @@ public class ChecklistGoal : Goal
     {
         return $"{GetName()}|{GetDescription()}|{GetPoints()}||{_amountCompleted}|{_target}|{_bonus}";
     }
+    
+    public void SetAmountCompleted(int amount)
+    {
+        _amountCompleted = amount;
+    }
 }
