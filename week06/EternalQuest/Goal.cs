@@ -24,7 +24,7 @@ public abstract class Goal
         }
         else
         {
-            return $"[]{_shortName} ({_description})";
+            return $"[ ] {_shortName} ({_description})";
         }
     }
 

@@ -4,17 +4,42 @@ public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
     private int _score;
+    private int _end;
 
     //public GoalManager(){}
 
     public void Start()
     {
-        Console.WriteLine($"Menu Options:\n   1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Load Goals\n   5. Record Event\n   6. Quit");
+        DisplayPlayerInfo();
+        Console.Write($"Menu Options:\n   1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Load Goals\n   5. Record Event\n   6. Quit\nSelect a choice from the menu: ");
+        int playerChoice = int.Parse(Console.ReadLine());
+        switch (playerChoice)
+        {
+            case 1:
+                CreateGoal();
+                break;
+            case 2:
+                ListGoalDetails();
+                break;
+            case 3:
+                SaveGoals();
+                break;
+            case 4:
+                LoadGoals();
+                break;
+            case 5:
+                RecordEvent();
+                break;
+            case 6:
+                _end = 6;
+                break;
+        }
+
     }
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"Your score is {_score}!");
+        Console.WriteLine($"You have {_score} points.");
     }
 
     public void ListGoalNames()
@@ -81,7 +106,7 @@ public class GoalManager
         }
         Console.Write("Which goal did you accomplish? ");
         int _selectedGoal = int.Parse(Console.ReadLine());
-        _score = _score + _goals[_selectedGoal].RecordEvent();
+        _score = _score + _goals[_selectedGoal - 1].RecordEvent();
     }
 
     public void SaveGoals()
@@ -115,5 +140,9 @@ public class GoalManager
             string target = parts[5];
             string bonus = parts[6];
         }
+    }
+    public int GetEnd()
+    {
+        return _end;
     }
 }

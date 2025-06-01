@@ -42,7 +42,7 @@ public class ChecklistGoal : Goal
         }
         else
         {
-            return $"[]{GetName()} ({GetDescription()}) -- Currently completed: {_amountCompleted}/{_target}";
+            return $"[ ] {GetName()} ({GetDescription()}) -- Currently completed: {_amountCompleted}/{_target}";
         }
     }
 
