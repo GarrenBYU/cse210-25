@@ -1,5 +1,6 @@
 using System;
 
+//The above and beyond in this program is that there are levels. Every 250 points adds another level to your status.
 class Program
 {
     static void Main(string[] args)
