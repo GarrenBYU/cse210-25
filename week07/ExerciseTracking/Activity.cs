@@ -15,7 +15,7 @@ public class Activity
     }
 
     public abstract void distance();
-    public virtual void speed();
+    public abstract void speed();
     // {
     //     _speed = (_distance / minutes) * 60;
     // }
@@ -27,5 +27,10 @@ public class Activity
     public virtual string GetSummary()
     {
         return $"{_date} {_activity} ({_duration} min): Distance {_distance}, Speed {_speed} mph, Pace: {_pace} per mile"
+    }
+    
+    public int GetDuration()
+    {
+        return _duration;
     }
 }

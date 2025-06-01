@@ -6,5 +6,14 @@ public class Running : Activity
     {
         _distance = distance;
     }
-    
+
+    public override void speed()
+    {
+        _speed = (_distance / _duration) * 60;
+    }
+
+    public override void pace()
+    {
+        _pace = 60 / _speed;
+    }
 }
