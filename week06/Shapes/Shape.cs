@@ -1,6 +1,6 @@
 using System;
 
-public class Shapes{
+public class Shape{
     private string _color;
 
     public string GetColor()
