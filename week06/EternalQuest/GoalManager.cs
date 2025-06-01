@@ -75,16 +75,27 @@ public class GoalManager
 
     public void RecordEvent()
     {
-
+        Console.WriteLine($"The Goals are: ");
+        private int _count = 1;
+        foreach (Goal g in _goals)
+        {
+            Console.WriteLine($"{_count}. {g._shortName}");
+            _count++;
+        }
+        Console.Write("Which goal did you accomplish? ");
+        private string _selectedGoal = Console.ReadLine();
+        _goals[_selectedGoal].RecordEvent();
     }
 
     public void SaveGoals()
     {
-
+        Console.Write($"What is the filename for the goal file? ");
+        private string _fileName = Console.ReadLine();
     }
 
     public void LoadGoals()
     {
-
+        Console.Write("What is the filename for the goal file? ");
+        private string _fileName = Console.ReadLine();
     }
 }
