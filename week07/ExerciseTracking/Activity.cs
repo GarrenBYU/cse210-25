@@ -14,15 +14,9 @@ public class Activity
         _duation = duration;
     }
 
-    public abstract void distance();
-    public abstract void speed();
-    // {
-    //     _speed = (_distance / minutes) * 60;
-    // }
-    public abstract void pace();
-    // {
-    //     _pace = 60 / speed;
-    // }
+    public abstract void Distance();
+    public abstract void Speed();
+    public abstract void Pace();
 
     public virtual string GetSummary()
     {
