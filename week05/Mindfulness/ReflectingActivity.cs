@@ -30,6 +30,7 @@ public class ReflectingActivity : Activity
             DisplayQuestions();
         }
         DisplayEndingMessage();
+        LogNumOfTimes();
     }
 
     public string GetRandomPrompt(){

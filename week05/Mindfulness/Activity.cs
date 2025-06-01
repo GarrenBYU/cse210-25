@@ -4,6 +4,7 @@ public class Activity{
     private string _name;
     private string _description;
     private int _duration;
+    private int _log;
 
     public Activity(string name, string description)
     {
@@ -64,5 +65,14 @@ public class Activity{
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
+    }
+    public void LogNumOfTimes()
+    {
+        _log++;
+    }
+    public string GetLog()
+    {
+        string _logString = _log.ToString();
+        return _logString;
     }
 }

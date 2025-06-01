@@ -29,6 +29,7 @@ public class ListingActivity : Activity
         }
         Console.WriteLine($"You listed {_count} items!");
         DisplayEndingMessage();
+        LogNumOfTimes();
     }
 
     public string GetRandomPrompt()
