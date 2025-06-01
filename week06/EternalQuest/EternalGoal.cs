@@ -4,9 +4,9 @@ public class EternalGoal : Goal
 {
     public EternalGoal(string name, string description, string points) : base (name, description, points){}
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        return _points;
+        return int.Parse(GetPoints());
     }
 
     public override bool IsComplete()
@@ -16,6 +16,6 @@ public class EternalGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"{_shortName}|{_description}|{_points}|false";
+        return $"{GetName()}|{GetDescription()}|{GetPoints()}|false";
     }
 }

@@ -21,7 +21,7 @@ public class GoalManager
     {
         foreach (Goal g in _goals)
         {
-            Console.WriteLine(g._shortName());
+            Console.WriteLine(g.GetName());
         }
     }
 
@@ -42,38 +42,30 @@ public class GoalManager
         string _points;
         string _target;
         string _bonus;
+
+        Console.Write($"What is the name of your goal? ");
+        _name = Console.ReadLine();
+        Console.Write($"What is a short description of it? ");
+        _description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        _points = Console.ReadLine();
         switch (_typeOfGoal)
         {
             case 1:
-                Console.Write($"What is the name of your goal? ");
-                _name = Console.ReadLine();
-                Console.Write($"What is a short description of it? ");
-                _description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                _points = Console.ReadLine();
-                SimpleGoal newGoal = new SimpleGoal(_name, _description, _points);
+                SimpleGoal newSimpleGoal = new SimpleGoal(_name, _description, _points);
+                _goals.Add(newSimpleGoal);
                 break;
             case 2:
-                Console.Write($"What is the name of your goal? ");
-                _name = Console.ReadLine();  
-                Console.Write($"What is a short description of it? ");
-                _description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                _points = Console.ReadLine();
-                EternalGoal newGoal = new EternalGoal(_name, _description, _points);
+                EternalGoal newEternalGoal = new EternalGoal(_name, _description, _points);
+                _goals.Add(newEternalGoal);
                 break;
             case 3:
-                Console.Write($"What is the name of your goal? ");
-                _name = Console.ReadLine();  
-                Console.Write($"What is a short description of it? ");
-                _description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                _points = Console.ReadLine();
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");
                 _target = Console.ReadLine();
                 Console.Write("What is the bonus for accomplishing it that many times? ");
                 _bonus = Console.ReadLine();
-                ChecklistGoal newGoal = new ChecklistGoal(_name, _description, _points, _target, _bonus);
+                ChecklistGoal newChecklistGoal = new ChecklistGoal(_name, _description, _points, _target, _bonus);
+                _goals.Add(newChecklistGoal);
                 break;
         }
     }
