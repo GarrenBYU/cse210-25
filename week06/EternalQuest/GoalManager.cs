@@ -36,39 +36,44 @@ public class GoalManager
     public void CreateGoal()
     {
         Console.Write($"The types of Goals are: \n   1. Simple Goal\n   2. Eternal Goal\n   3. Checklist Goal\nWhich type of goal would you like to create? ");
-        private int _typeOfGoal = int.Parse(Console.ReadLine());
-        swith (_typeOfGoal)
+        int _typeOfGoal = int.Parse(Console.ReadLine());
+        string _name;
+        string _description;
+        string _points;
+        string _target;
+        string _bonus;
+        switch (_typeOfGoal)
         {
             case 1:
                 Console.Write($"What is the name of your goal? ");
-                private string _name = Console.ReadLine();
+                _name = Console.ReadLine();
                 Console.Write($"What is a short description of it? ");
-                private string _description = Console.ReadLine();
+                _description = Console.ReadLine();
                 Console.Write("What is the amount of points associated with this goal? ");
-                private string _points = Console.ReadLine();
-                SimpleGoal _name = new SimpleGoal(_name, _description, _points);
+                _points = Console.ReadLine();
+                SimpleGoal newGoal = new SimpleGoal(_name, _description, _points);
                 break;
             case 2:
                 Console.Write($"What is the name of your goal? ");
-                private string _name = Console.ReadLine();  
+                _name = Console.ReadLine();  
                 Console.Write($"What is a short description of it? ");
-                private string _description = Console.ReadLine();
+                _description = Console.ReadLine();
                 Console.Write("What is the amount of points associated with this goal? ");
-                private string _points = Console.ReadLine();
-                EternalGoal _name = new EternalGoal(_name, _description, _points);
+                _points = Console.ReadLine();
+                EternalGoal newGoal = new EternalGoal(_name, _description, _points);
                 break;
             case 3:
                 Console.Write($"What is the name of your goal? ");
-                private string _name = Console.ReadLine();  
+                _name = Console.ReadLine();  
                 Console.Write($"What is a short description of it? ");
-                private string _description = Console.ReadLine();
+                _description = Console.ReadLine();
                 Console.Write("What is the amount of points associated with this goal? ");
-                private string _points = Console.ReadLine();
+                _points = Console.ReadLine();
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-                private string _target = Console.ReadLine();
+                _target = Console.ReadLine();
                 Console.Write("What is the bonus for accomplishing it that many times? ");
-                private string _bonus = Console.ReadLine();
-                ChecklistGoal _name = new ChecklistGoal(_name, _description, _points, _target, _bonus);
+                _bonus = Console.ReadLine();
+                ChecklistGoal newGoal = new ChecklistGoal(_name, _description, _points, _target, _bonus);
                 break;
         }
     }
@@ -76,22 +81,22 @@ public class GoalManager
     public void RecordEvent()
     {
         Console.WriteLine($"The Goals are: ");
-        private int _count = 1;
+        int _count = 1;
         foreach (Goal g in _goals)
         {
             Console.WriteLine($"{_count}. {g._shortName}");
             _count++;
         }
         Console.Write("Which goal did you accomplish? ");
-        private string _selectedGoal = Console.ReadLine();
+        int _selectedGoal = int.Parse(Console.ReadLine());
         _score = _score + _goals[_selectedGoal].RecordEvent();
     }
 
     public void SaveGoals()
     {
         Console.Write($"What is the filename for the goal file? ");
-        private string _fileName = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(fileName)){
+        string _fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(_fileName)){
             outputFile.WriteLine(_score);
 
             foreach(Goal g in _goals)
@@ -99,17 +104,16 @@ public class GoalManager
                 g.GetStringRepresentation();
             }
         }
-     }
     }
 
     public void LoadGoals()
     {
         Console.Write("What is the filename for the goal file? ");
-        private string _fileName = Console.ReadLine();
+        string _fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines (_fileName);
         foreach (string line in lines)
         {
-            string[] parts = line.split("|");
+            string[] parts = line.Split("|");
 
             string name = parts[0];
             string description = parts[1];

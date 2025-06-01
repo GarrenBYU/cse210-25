@@ -15,10 +15,10 @@ public class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-        _amountCompleted++
+        _amountCompleted++;
         if(IsComplete() == true)
         {
-            _points = _points + _bonus
+            _points = _points + _bonus;
         }
         return _points;
     }
@@ -38,16 +38,16 @@ public class ChecklistGoal : Goal
     {
         if(IsComplete() = true)
         {
-            return $"[x]{_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_targe}";
+            return $"[x]{_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
         }
         else
         {
-            return $"[]{_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_targe}";
+            return $"[]{_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
         }
     }
 
     public override string GetStringRepresentation()
     {
-        return $"{_name}|{_description}|{_points}||{_amountCompleted}|{target}|{bonus}";
+        return $"{_shortName}|{_description}|{_points}||{_amountCompleted}|{_target}|{_bonus}";
     }
 }

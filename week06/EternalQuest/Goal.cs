@@ -1,6 +1,6 @@
 using System;
 
-public class Goal
+public abstract class Goal
 {
     private string _shortName;
     private string _description;
@@ -16,7 +16,7 @@ public class Goal
     
     public abstract bool IsComplete();
 
-    public string GetDetailsString()
+    public virtual string GetDetailsString()
     {
         if(IsComplete() = true)
         {
