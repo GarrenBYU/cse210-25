@@ -1,6 +1,6 @@
 using System;
 
-public class Rectangle
+public class Rectangle : Shape
 {
     private double _length;
     private double _width;

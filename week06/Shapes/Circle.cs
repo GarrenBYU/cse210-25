@@ -1,6 +1,6 @@
 using System;
 
-public class Circle
+public class Circle : Shape
 {
     private double _radius;
 
