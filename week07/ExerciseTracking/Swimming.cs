@@ -2,20 +2,20 @@ using System;
 
 public class Swimming : Activity
 {
-    public Swimming(DateTime date, int duration, int numOfLaps) : base (date, duration)
+    public Swimming(int duration, int numOfLaps, DateTime date) : base (duration, date)
     {
         _distance = numOfLaps * 50 / 100 * .62;
     }
 
     public override int Speed()
     {
-        _speed = (_distance / _duration) * 60;
-        return _speed;
+        _speed = (_distance / GetDuration()) * 60;
+        return (int) _speed;
     }
 
     public override int Pace()
     {
         _pace = 60 / _speed;
-        return _pace;
+        return (int) _pace;
     }
 }

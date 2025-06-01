@@ -1,26 +1,35 @@
 using System;
 
-public class Activity
+public abstract class Activity
 {
     private DateTime _date;
     private int _duration;
-    protected int _distance;
-    protected int _speed;
-    protected int _pace;
+    protected double _distance;
+    protected double _speed;
+    protected double _pace;
 
-    public Activity(DateTime date, int duration)
+    public Activity(int duration, DateTime date = default)
     {
-        _date = date;
-        _duation = duration;
+        _date = date == default ? DateTime.Now : date;
+        _duration = duration;
     }
 
-    public abstract int Distance();
-    public abstract int Speed();
-    public abstract int Pace();
+    public virtual int Distance()
+    {
+        return (int)_distance;
+    }
+    public virtual int Speed()
+    {
+        return (int)_speed;
+    }
+    public virtual int Pace()
+    {
+        return (int)_pace;
+    }
 
     public virtual string GetSummary()
     {
-        return $"{_date} {_activity} ({_duration} min): Distance {_distance}, Speed {_speed} mph, Pace: {_pace} per mile";
+        return $"{_date} {GetType()} ({_duration} min): Distance {_distance}, Speed {_speed} mph, Pace: {_pace} per mile";
     }
     
     public int GetDuration()
