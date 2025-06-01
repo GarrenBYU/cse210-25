@@ -5,6 +5,7 @@ public class GoalManager
     private List<Goal> _goals = new List<Goal>();
     private int _score;
     private int _end;
+    private int _level;
 
     //public GoalManager(){}
 
@@ -39,7 +40,7 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"You have {_score} points.");
+        Console.WriteLine($"You have {_score} points and you are a level {_level}.");
     }
 
     public void ListGoalNames()
@@ -171,5 +172,11 @@ public class GoalManager
     public int GetEnd()
     {
         return _end;
+    }
+
+    public int Getlevel()
+    {
+        _level = _score / 250;
+        return _level;
     }
 }
