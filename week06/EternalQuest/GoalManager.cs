@@ -84,18 +84,40 @@ public class GoalManager
         }
         Console.Write("Which goal did you accomplish? ");
         private string _selectedGoal = Console.ReadLine();
-        _goals[_selectedGoal].RecordEvent();
+        _score = _score + _goals[_selectedGoal].RecordEvent();
     }
 
     public void SaveGoals()
     {
         Console.Write($"What is the filename for the goal file? ");
         private string _fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName)){
+            outputFile.WriteLine(_score);
+
+            foreach(Goal g in _goals)
+            {
+                g.GetStringRepresentation();
+            }
+        }
+     }
     }
 
     public void LoadGoals()
     {
         Console.Write("What is the filename for the goal file? ");
         private string _fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines (_fileName);
+        foreach (string line in lines)
+        {
+            string[] parts = line.split("|");
+
+            string name = parts[0];
+            string description = parts[1];
+            string points = parts[2];
+            string isComplete = parts[3];
+            string amountCompleted = parts[4];
+            string target = parts[5];
+            string bonus = parts[6];
+        }
     }
 }
