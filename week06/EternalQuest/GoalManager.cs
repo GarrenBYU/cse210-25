@@ -40,7 +40,7 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"You have {_score} points and you are a level {_level}.");
+        Console.WriteLine($"You have {_score} points and you are a level {Getlevel()} hero!");
     }
 
     public void ListGoalNames()

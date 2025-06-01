@@ -1,5 +1,5 @@
-275
-SimpleGoal|Read the Scriptures|Read at least a verse|10|True|||
+535
+SimpleGoal|Read the Scriptures|Read at least a verse|10|True||||
 EternalGoal|Read the scriptures II|Read Every day buddy|10|false|||
-ChecklistGoal|Attend the temple|Attend 3 times|50||1|100|100000
+ChecklistGoal|Attend the temple|Attend 100 times|50||6|100|100000
 ChecklistGoal|Go to church|Attend church and listen|35||3|3|100
