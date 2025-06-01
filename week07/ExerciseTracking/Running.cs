@@ -2,18 +2,20 @@ using System;
 
 public class Running : Activity
 {
-    public Running(DateTime date, int duration, int distance) : (date, duration)
+    public Running(DateTime date, int duration, int distance) : base (date, duration)
     {
         _distance = distance;
     }
 
-    public override void Speed()
+    public override int Speed()
     {
         _speed = (_distance / _duration) * 60;
+        return _speed;
     }
 
-    public override void Pace()
+    public override int Pace()
     {
         _pace = 60 / _speed;
+        return _pace;
     }
 }

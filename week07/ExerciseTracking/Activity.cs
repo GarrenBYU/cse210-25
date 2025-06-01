@@ -14,13 +14,13 @@ public class Activity
         _duation = duration;
     }
 
-    public abstract void Distance();
-    public abstract void Speed();
-    public abstract void Pace();
+    public abstract int Distance();
+    public abstract int Speed();
+    public abstract int Pace();
 
     public virtual string GetSummary()
     {
-        return $"{_date} {_activity} ({_duration} min): Distance {_distance}, Speed {_speed} mph, Pace: {_pace} per mile"
+        return $"{_date} {_activity} ({_duration} min): Distance {_distance}, Speed {_speed} mph, Pace: {_pace} per mile";
     }
     
     public int GetDuration()
